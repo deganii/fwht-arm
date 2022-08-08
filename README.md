@@ -10,11 +10,11 @@ In a nutshell, this is the source-code for a software-based lock-in-amplifier (L
 ## Why build an MCU-based LIA?
 The most common LIA's are FPGA-based digital systems or analog IC-based systems. The FPGA systems can get super-expensive, and are usually big/bulky rack-mounted devices for high-end physics/telecom applications (i.e. the Zurich UHFLI series). The analog IC's (i.e. ) are cumbersome to customize and configure. You generally have to craft a custom circuit-board for your application and then to change anything you didn't foresee in the design (i.e. the order of the low-pass filter) you've gotta redo the entire board. This is slow and very painful (speaking from experience). 
 
-What I wanted was an ultra-cheap (think $20) LIA that was fully "tinkerable" in software. So for example, if you want to change the modulation waveform to something completely arbitrary, or change the sampling rate to be 'irregular' to squeeze out more performace for a particular type of signal, you could do that. A software LIA also lets you do really sohpisticated things that even a high-end FPGA system may not support. For example, you can sample the noise for some time, and then adaptively create a waveform modulation that is tailored to subvert that specific noise. (BTW credit for that awesome suggestion goes to my thesis commitee member, Prof. Luca Daniel). The tradeoff is that you can't get to MHz-level modulations; for that you need to use a FPGA or high-end analog system. This MCU system tops out at 250kHz or so. 
+What I wanted was an ultra-cheap (think $20) LIA that was fully "tinkerable" in software. So for example, if you want to change the modulation waveform to something completely arbitrary, or change the sampling rate to be 'irregular' to squeeze out more performace for a particular type of signal, you could do that. A software LIA also lets you do really sophisticated things that even a high-end FPGA system may not support. For example, you can sample the system noise for some time, and then adaptively create a waveform modulation tailored to subvert that specific noise. (credit for that awesome suggestion goes to my thesis commitee member, Prof. Luca Daniel). The tradeoff is that you can't get to MHz-level modulations; for that you need to use a FPGA or a high-end analog system. This MCU system tops out at 250kHz or so. 
 
 ## Video of system in action:
 
-This video needs to be narrated, but the idea is that I'm loading up a fluorescent sample into an open-air prototype with no light-proofing. As I'm waving my hand around, I'm simulating optical noise which is wreaking havoc on the sensitive light-based measurement (the measurement is bouncing around in the upper right quadrant). I turn on the lock-in amplifier at 1:09, and you can see order emerge from the chaos. The outside light perturbation no longer has an effect on the signal. It's just a  steady line with a gentle slope representing the photobleaching rate of the fluorophore. So at very low cost you can bring noise-resiliency to small portable sensors.
+This video needs to be narrated, but the idea is that I'm loading up a fluorescent sample into an open-air prototype with no light-proofing. As I'm waving my hand around, blocking and unblocking the overhead lights, I'm simulating optical noise which is wreaking havoc on the sensitive light-based measurement (the measurement is bouncing around in the upper-right quadrant). I turn on the lock-in amplifier at 1:09, and you can see order emerge from the chaos. The outside light perturbation no longer has an effect on the signal. It's just a  steady line with a gentle slope representing the photobleaching rate of the fluorophore. Essentially, this demonstrates that at very low cost you can bring powerful noise-resiliency to small/portable sensing devices.
 
 [![Qt5-UI for Fast Walsh-Hadamard Lockin Amplifier](https://img.youtube.com/vi/tHf3V4GTSLU/0.jpg)](https://www.youtube.com/watch?v=tHf3V4GTSLU)
 
@@ -28,13 +28,9 @@ Most likely I think this repository's main benefit will be people stumbling here
 
 The GUI has lots of knobs etc where you can control the input modulation waveform, and choose from some pre-configured options:
 
-The Teensy is really a remarkable microntroller! 
+The Teensy is a remarkable microntroller. Right now it produces a 12-bit waveform on its onboard DAC, and then samples 12-bit raw data (i.e. before any cross-correlation or demodulation) at 200kHz using its onboard ADC. Both the sampling and modulation are controlled by DMA so they are very efficient. The ADC reads are precisely synchronized with the DAC using timers and the Teensy's programmable delay block (the Teensy waits for the DAC signal to "settle" before measuring, see below image). The Teensy finally sends a real-time data stream to the Qt-based UI (about 1MB/second) which does the post processing and display. The modulation waveform can be customized on-the-fly, as shown in the video.
 
-communicates to a Qt5-based  UI that can (theoretically) run on any platform.
 
-Right now it blasts raw data (i.e. before any cross-correlation or demodulation) over USB and PC interface does the post processing. (
-
-200kHz with 
 
 ## Acknowledgements:
 
