@@ -39,5 +39,4 @@ Most of the research-side acknowledgments are in the thesis itself. But here I'd
 ## License: MIT
 
 I've tried to attribute all code snippets borrowed from forums and other places but please contact me if I've left something out. 
-This is just research/non-commmercial software developed under 
 
