@@ -16,7 +16,7 @@ What I wanted was an ultra-cheap (think $20) LIA that was fully "tinkerable" in 
 
 ## WTF is FWHT?
 
-If you're familiar with the Fast Fourier Transform (FFT), the Fast Walsh-Hadamard transform (FWHT) is very similar but it decomposes a signal into irregular square waves (known as Walsh Functions) instead of sines and cosines. In the context of an LIA, if you suspect that the noise you'll encounter is more "digital" or abrupt in nature (i.e. MCU chatter vs gaussian noise), then you might be able to filter it more efficiently/effectively using the FWHT. Another benefit is that you get more RMS power out of your modulation signal because a square wave jumps to its max value immediately (rather than slowly transitioning like a sine wave - my thesis is more detailed about this). A third benefit is that FWHT sounds hard and complicated, which makes it great for an academic publication or thesis. 
+If you're familiar with the Fast Fourier Transform (FFT), the Fast Walsh-Hadamard transform (FWHT) is very similar but it decomposes a signal into irregular square waves (known as Walsh Functions) instead of sines and cosines. In the context of an LIA, if you suspect that the noise you'll encounter is more "digital" or abrupt in nature (i.e. MCU chatter vs gaussian noise), then you might be able to filter it more efficiently/effectively using the FWHT. Another benefit is that you get more RMS power out of your modulation signal because a square wave jumps to its max value immediately (rather than slowly transitioning like a sine wave). A third benefit is that FWHT sounds hard and complicated, which makes it great for an academic publication or thesis. 
 
 ## Video of system in action:
 
