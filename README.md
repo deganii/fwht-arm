@@ -12,7 +12,7 @@ The most common LIA's are FPGA-based digital systems or analog IC-based systems.
 
 What I wanted was an ultra-cheap (think $20) LIA that was fully "tinkerable" in software. So for example, if you want to change the modulation waveform to something completely arbitrary, or change the sampling rate to be 'irregular' to squeeze out more performace for a particular type of signal, you could do that. A software LIA also lets you do really sophisticated things that even a high-end FPGA system may not support. For example, you can sample the system noise for some time, and then adaptively create a waveform modulation tailored to subvert that specific noise. (credit for that awesome suggestion goes to my thesis commitee member, Prof. Luca Daniel). The tradeoff is that you can't get to MHz-level modulations; for that you need to use a FPGA or a high-end analog system. This MCU system tops out at 250kHz or so. 
 
-# WTF is FWHT?
+## WTF is FWHT?
 
 If you're familiar with the Fast Fourier Transform (FFT), the Fast Walsh-Hadamard transform (FWHT) is very similar but it decomposes a signal into irregular square waves (known as Walsh Functions) instead of sines and cosines. In the context of an LIA, if you imagine that the noise you encounter is more "digital" or abrupt in nature (i.e. MCU chatter vs gaussian noise), then you might be able to filter it more efficiently using the FWHT. Another benefit is that you get more RMS power out of your modulation signal because a square wave jumps to its max value immediately (rather than slowly transitioning like a sine wave - my thesis is more detailed about this). A third benefit is that FWHT sounds hard and complicated, which makes it good for a an academic publication. 
 
