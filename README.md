@@ -30,12 +30,9 @@ Most likely I think this repository's main benefit will be people stumbling here
 
 ## Features
 
-The GUI has lots of knobs etc where you can control the input modulation waveform, and choose from some pre-configured options:
+The GUI has lots of knobs etc where you can control the input modulation waveform. You can choose coustom-select the Fourier Frequencies (or the Walsh 'Sequencies') you want to use, or an adaptive method that samples the noise. You can also do frewuency/sequency sweeps across all modulation frequencies.
 
 ![alt text](https://github.com/deganii/fwht-arm/blob/main/img/waveform_editor.png?raw=true)
-
-- 
-
 
 The Teensy is a remarkable microntroller. Right now it produces a 12-bit waveform on its onboard DAC, and then samples 12-bit raw data (i.e. before any cross-correlation or demodulation) at 200kHz using its onboard ADC. Both the sampling and modulation are controlled by DMA so they are very efficient. The ADC reads are precisely synchronized with the DAC using timers and the Teensy's programmable delay block (the Teensy waits for the DAC signal to "settle" before measuring, see below image). The Teensy finally sends a real-time data stream to the Qt-based UI (about 1MB/second) which does the post processing and display. The modulation waveform can be customized on-the-fly, as shown in the video.
 
