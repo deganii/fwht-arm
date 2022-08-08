@@ -12,6 +12,10 @@ The most common LIA's are FPGA-based digital systems or analog IC-based systems.
 
 What I wanted was an ultra-cheap (think $20) LIA that was fully "tinkerable" in software. So for example, if you want to change the modulation waveform to something completely arbitrary, or change the sampling rate to be 'irregular' to squeeze out more performace for a particular type of signal, you could do that. A software LIA also lets you do really sophisticated things that even a high-end FPGA system may not support. For example, you can sample the system noise for some time, and then adaptively create a waveform modulation tailored to subvert that specific noise. (credit for that awesome suggestion goes to my thesis commitee member, Prof. Luca Daniel). The tradeoff is that you can't get to MHz-level modulations; for that you need to use a FPGA or a high-end analog system. This MCU system tops out at 250kHz or so. 
 
+# WTF is FWHT?
+
+If you're familiar with the Fast Fourier Transform (FFT), the Fast Walsh-Hadamard transform (FWHT) is very similar but it decomposes a signal into irregular square waves (known as Walsh Functions) instead of sines and cosines. In the context of an LIA, if you imagine that the noise you encounter is more "digital" or abrupt in nature (i.e. MCU chatter vs gaussian noise), then you might be able to filter it more efficiently using the FWHT. Another benefit is that you get more RMS power out of your modulation signal because a square wave jumps to its max value immediately (rather than slowly transitioning like a sine wave - my thesis is more detailed about this). A third benefit is that FWHT sounds hard and complicated, which makes it good for a an academic publication. 
+
 ## Video of system in action:
 
 This video needs to be narrated, but the idea is that I'm loading up a fluorescent sample into an open-air prototype with no light-proofing. As I'm waving my hand around, blocking and unblocking the overhead lights, I'm simulating optical noise which is wreaking havoc on the sensitive light-based measurement (the measurement is bouncing around in the upper-right quadrant). I turn on the lock-in amplifier at 1:09, and you can see order emerge from the chaos. The outside light perturbation no longer has an effect on the signal. It's just a  steady line with a gentle slope representing the photobleaching rate of the fluorophore. Essentially, this demonstrates that at very low cost you can bring powerful noise-resiliency to small/portable sensing devices.
@@ -29,6 +33,9 @@ Most likely I think this repository's main benefit will be people stumbling here
 The GUI has lots of knobs etc where you can control the input modulation waveform, and choose from some pre-configured options:
 
 ![alt text](https://github.com/deganii/fwht-arm/blob/main/img/waveform_editor.png?raw=true)
+
+- 
+
 
 The Teensy is a remarkable microntroller. Right now it produces a 12-bit waveform on its onboard DAC, and then samples 12-bit raw data (i.e. before any cross-correlation or demodulation) at 200kHz using its onboard ADC. Both the sampling and modulation are controlled by DMA so they are very efficient. The ADC reads are precisely synchronized with the DAC using timers and the Teensy's programmable delay block (the Teensy waits for the DAC signal to "settle" before measuring, see below image). The Teensy finally sends a real-time data stream to the Qt-based UI (about 1MB/second) which does the post processing and display. The modulation waveform can be customized on-the-fly, as shown in the video.
 
