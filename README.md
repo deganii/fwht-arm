@@ -1,7 +1,9 @@
 # Fast Walsh-Hadamard Transform (FWHT) lock-in amplification system for the Teensy microcontroller (MCU)
-(Source code and data for my PhD thesis project)
+
+This repository holds the source code and data for my PhD thesis project
 
 Link to my PhD thesis if you like to read insufferable academic stuff:
+
 https://dspace.mit.edu/handle/1721.1/143262
 
 ## What is this?
