@@ -32,7 +32,7 @@ Most likely I think this repository's main benefit will be people stumbling here
 
 ## Features
 
-The GUI has lots of knobs etc where you can control the input modulation waveform. You can choose coustom-select the Fourier Frequencies (or the Walsh 'Sequencies') you want to use, or an adaptive method that samples the noise. You can also do frewuency/sequency sweeps across all modulation frequencies.
+The GUI has lots of knobs etc where you can control the input modulation waveform. You can choose coustom-select the Fourier Frequencies (or the Walsh 'Sequencies') you want to use, or an adaptive method that samples the noise. You can also do frequency/sequency sweeps across all modulation frequencies.
 
 ![alt text](https://github.com/deganii/fwht-arm/blob/main/img/waveform_editor.png?raw=true)
 
