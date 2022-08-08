@@ -1,0 +1,1465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>768</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Real-time HPV Fluorescence Interface</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,20,20">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="horizontalSpacing">
+     <number>3</number>
+    </property>
+    <property name="verticalSpacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0" colspan="2">
+     <layout class="QGridLayout" name="gridTop">
+      <property name="leftMargin">
+       <number>3</number>
+      </property>
+      <property name="topMargin">
+       <number>3</number>
+      </property>
+      <property name="rightMargin">
+       <number>3</number>
+      </property>
+      <property name="bottomMargin">
+       <number>3</number>
+      </property>
+      <property name="spacing">
+       <number>3</number>
+      </property>
+      <item row="0" column="1">
+       <widget class="QLabel" name="labelPort">
+        <property name="text">
+         <string>Port</string>
+        </property>
+        <property name="margin">
+         <number>5</number>
+        </property>
+        <property name="buddy">
+         <cstring>comboPorts</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QComboBox" name="comboPorts">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>1</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">padding:2;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <widget class="QPushButton" name="buttonRefresh">
+        <property name="styleSheet">
+         <string notr="true">margin:0;padding:5;top:0;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="resources/resources.qrc">
+          <normaloff>:/icons/refresh.svg</normaloff>:/icons/refresh.svg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>10</width>
+          <height>10</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="6">
+       <widget class="QCheckBox" name="checkSave">
+        <property name="text">
+         <string>Save:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="7">
+       <widget class="QLineEdit" name="textSave">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>1</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="placeholderText">
+         <string>C:\dev\prbs\data\{date}-exp.data</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="8">
+       <widget class="QPushButton" name="buttonConnect">
+        <property name="styleSheet">
+         <string notr="true">margin:0;padding:5;top:0;</string>
+        </property>
+        <property name="text">
+         <string>&amp;Connect</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QWidget" name="widgetDesigner" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>240</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="maximumSize">
+          <size>
+           <width>480</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Waveform Designer</string>
+         </property>
+         <widget class="QComboBox" name="comboWaveformLength">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>150</y>
+            <width>120</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <item>
+           <property name="text">
+            <string>32</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>64</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>128</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>256</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>512 (Default)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>1024</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>2048</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>4096 (Max)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>8192 (Doesn't work)</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>16384 (Doesn't work)</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QLabel" name="labelWaveformLen">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>128</y>
+            <width>101</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Waveform Length:</string>
+          </property>
+          <property name="buddy">
+           <cstring>comboWaveformLength</cstring>
+          </property>
+         </widget>
+         <widget class="QLabel" name="labelNumFns">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>31</y>
+            <width>121</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Number of Functions:</string>
+          </property>
+          <property name="buddy">
+           <cstring>comboBoxNumFunctions</cstring>
+          </property>
+         </widget>
+         <widget class="QComboBox" name="comboBoxNumFunctions">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>51</y>
+            <width>120</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="currentIndex">
+           <number>2</number>
+          </property>
+          <item>
+           <property name="text">
+            <string>1</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>2</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>3</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>4</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>5</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>6</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>7</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>8</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>9</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>10</string>
+           </property>
+          </item>
+         </widget>
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>122</y>
+            <width>321</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="title">
+           <string>Basis Functions</string>
+          </property>
+          <widget class="QRadioButton" name="radioWalsh">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>19</y>
+             <width>151</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Walsh-Hadamard (Square)</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QRadioButton" name="radioFourier">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>19</y>
+             <width>131</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Fourier (Sinusoidal)</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="Line" name="line">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>325</x>
+            <y>34</y>
+            <width>30</width>
+            <height>135</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">margin:-1</string>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
+         <widget class="QLabel" name="labelWaveformLen_2">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>78</y>
+            <width>101</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Function Range:</string>
+          </property>
+          <property name="buddy">
+           <cstring>spinRangeStart</cstring>
+          </property>
+         </widget>
+         <widget class="QSpinBox" name="spinRangeStart">
+          <property name="geometry">
+           <rect>
+            <x>350</x>
+            <y>100</y>
+            <width>51</width>
+            <height>22</height>
+           </rect>
+          </property>
+         </widget>
+         <widget class="QSpinBox" name="spinRangeEnd">
+          <property name="geometry">
+           <rect>
+            <x>420</x>
+            <y>100</y>
+            <width>51</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="maximum">
+           <number>512</number>
+          </property>
+         </widget>
+         <widget class="QLabel" name="labelSampleFreq_6">
+          <property name="geometry">
+           <rect>
+            <x>404</x>
+            <y>103</y>
+            <width>16</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>to</string>
+          </property>
+          <property name="buddy">
+           <cstring>spinRangeEnd</cstring>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="buttonApply">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>235</x>
+            <y>190</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Apply</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="buttonClose">
+          <property name="geometry">
+           <rect>
+            <x>395</x>
+            <y>190</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Cancel</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="buttonReset">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>315</x>
+            <y>190</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Reset</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="buttonDefault">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>190</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Defaults</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="buttonRandom">
+          <property name="geometry">
+           <rect>
+            <x>90</x>
+            <y>190</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Random</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resources/resources.qrc">
+            <normaloff>:/icons/random.svg</normaloff>:/icons/random.svg</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>18</width>
+            <height>16</height>
+           </size>
+          </property>
+         </widget>
+         <widget class="QGroupBox" name="groupBoxMode">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>29</y>
+            <width>321</width>
+            <height>91</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QGroupBox{border:none;margin:0}</string>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <property name="checkable">
+           <bool>false</bool>
+          </property>
+          <widget class="QLabel" name="labelSampleFreq_3">
+           <property name="geometry">
+            <rect>
+             <x>260</x>
+             <y>32</y>
+             <width>71</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>milliseconds</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="labelSampleFreq">
+           <property name="geometry">
+            <rect>
+             <x>73</x>
+             <y>1</y>
+             <width>111</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Measure noise every</string>
+           </property>
+           <property name="buddy">
+            <cstring>spinNoiseInterval</cstring>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spinHopFreq">
+           <property name="geometry">
+            <rect>
+             <x>195</x>
+             <y>31</y>
+             <width>61</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="maximum">
+            <number>10000</number>
+           </property>
+           <property name="value">
+            <number>250</number>
+           </property>
+          </widget>
+          <widget class="QLabel" name="labelSampleFreq_2">
+           <property name="geometry">
+            <rect>
+             <x>260</x>
+             <y>1</y>
+             <width>71</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>milliseconds</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="textCustomFunctions">
+           <property name="geometry">
+            <rect>
+             <x>193</x>
+             <y>61</y>
+             <width>121</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>3,  7, 12, 15, 21, 27</string>
+           </property>
+          </widget>
+          <widget class="QRadioButton" name="radioModeChirp">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>31</y>
+             <width>61</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="toolTip">
+            <string>Hop through a frequency range sequentially</string>
+           </property>
+           <property name="text">
+            <string>Chirp</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="labelSampleFreq_5">
+           <property name="geometry">
+            <rect>
+             <x>73</x>
+             <y>61</y>
+             <width>111</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Basis Functions (CSV)</string>
+           </property>
+           <property name="buddy">
+            <cstring>textCustomFunctions</cstring>
+           </property>
+          </widget>
+          <widget class="QRadioButton" name="radioModeCustom">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>61</y>
+             <width>61</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Custom</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="labelHopFunctions">
+           <property name="geometry">
+            <rect>
+             <x>73</x>
+             <y>31</y>
+             <width>121</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Hop frequencies every</string>
+           </property>
+           <property name="buddy">
+            <cstring>spinHopFreq</cstring>
+           </property>
+          </widget>
+          <widget class="QRadioButton" name="radioModeAdaptive">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>1</y>
+             <width>71</width>
+             <height>20</height>
+            </rect>
+           </property>
+           <property name="toolTip">
+            <string>Choose the modulation frequency based on the lowest noise bins</string>
+           </property>
+           <property name="text">
+            <string>Adaptive </string>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="spinNoiseInterval">
+           <property name="geometry">
+            <rect>
+             <x>195</x>
+             <y>1</y>
+             <width>61</width>
+             <height>22</height>
+            </rect>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="maximum">
+            <number>10000</number>
+           </property>
+           <property name="value">
+            <number>250</number>
+           </property>
+          </widget>
+         </widget>
+         <zorder>line</zorder>
+         <zorder>comboWaveformLength</zorder>
+         <zorder>labelWaveformLen</zorder>
+         <zorder>labelNumFns</zorder>
+         <zorder>comboBoxNumFunctions</zorder>
+         <zorder>groupBox_2</zorder>
+         <zorder>labelWaveformLen_2</zorder>
+         <zorder>spinRangeStart</zorder>
+         <zorder>spinRangeEnd</zorder>
+         <zorder>labelSampleFreq_6</zorder>
+         <zorder>buttonApply</zorder>
+         <zorder>buttonClose</zorder>
+         <zorder>buttonReset</zorder>
+         <zorder>buttonDefault</zorder>
+         <zorder>buttonRandom</zorder>
+         <zorder>groupBoxMode</zorder>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="0" rowspan="2">
+     <widget class="QCustomPlot" name="signalPlot" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>1</horstretch>
+        <verstretch>1</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">margin:0</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QCustomPlot" name="snrPlot" native="true"/>
+    </item>
+    <item row="3" column="1">
+     <widget class="QWidget" name="widget3d" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>1</horstretch>
+        <verstretch>1</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="cursor">
+       <cursorShape>OpenHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">margin:0</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>768</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionAutoMeasure"/>
+    <addaction name="actionAutoCenter"/>
+    <addaction name="actionOffset"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <widget class="QMenu" name="menuSelect_Theme">
+     <property name="title">
+      <string>Select Theme...</string>
+     </property>
+     <addaction name="actionThemeWindows"/>
+     <addaction name="actionThemeDark"/>
+    </widget>
+    <addaction name="actionCopy"/>
+    <addaction name="actionScreenshot"/>
+    <addaction name="actionLogScale"/>
+    <addaction name="menuSelect_Theme"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionWaveformDesigner"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAutoCenter">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Auto-Center</string>
+   </property>
+   <property name="toolTip">
+    <string>Auto-Center the real-time charts every 10 seconds</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="resources/resources.qrc">
+     <normaloff>:/icons/qdarkstyle/transparent.svg</normaloff>:/icons/qdarkstyle/transparent.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionOffset">
+   <property name="icon">
+    <iconset resource="resources/resources.qrc">
+     <normaloff>:/icons/qdarkstyle/transparent.svg</normaloff>:/icons/qdarkstyle/transparent.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Offset: 0</string>
+   </property>
+  </action>
+  <action name="actionWaveformDesigner">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Waveform Designer...</string>
+   </property>
+  </action>
+  <action name="actionScreenshot">
+   <property name="icon">
+    <iconset resource="resources/resources.qrc">
+     <normaloff>:/icons/qdarkstyle/transparent.svg</normaloff>:/icons/qdarkstyle/transparent.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Screenshot...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="icon">
+    <iconset resource="resources/resources.qrc">
+     <normaloff>:/icons/qdarkstyle/transparent.svg</normaloff>:/icons/qdarkstyle/transparent.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Copy Data to Clipboard...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionThemeDark">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Dark Theme</string>
+   </property>
+  </action>
+  <action name="actionThemeWindows">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Windows Theme</string>
+   </property>
+  </action>
+  <action name="actionLogScale">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Use Log Scale</string>
+   </property>
+  </action>
+  <action name="actionAutoMeasure">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Auto-Measure Waveform</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcp/qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>comboPorts</tabstop>
+  <tabstop>buttonRefresh</tabstop>
+  <tabstop>checkSave</tabstop>
+  <tabstop>textSave</tabstop>
+  <tabstop>buttonConnect</tabstop>
+  <tabstop>radioModeAdaptive</tabstop>
+  <tabstop>spinNoiseInterval</tabstop>
+  <tabstop>radioModeChirp</tabstop>
+  <tabstop>spinHopFreq</tabstop>
+  <tabstop>radioModeCustom</tabstop>
+  <tabstop>textCustomFunctions</tabstop>
+  <tabstop>radioWalsh</tabstop>
+  <tabstop>radioFourier</tabstop>
+  <tabstop>comboBoxNumFunctions</tabstop>
+  <tabstop>spinRangeStart</tabstop>
+  <tabstop>spinRangeEnd</tabstop>
+  <tabstop>comboWaveformLength</tabstop>
+  <tabstop>buttonDefault</tabstop>
+  <tabstop>buttonRandom</tabstop>
+  <tabstop>buttonApply</tabstop>
+  <tabstop>buttonReset</tabstop>
+  <tabstop>buttonClose</tabstop>
+ </tabstops>
+ <resources>
+  <include location="resources/resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>buttonConnect</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>handleConnect()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>451</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>248</x>
+     <y>245</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionAutoCenter</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onAutoCenterToggled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>316</x>
+     <y>271</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionOffset</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onOffsetTriggered()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>316</x>
+     <y>271</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionWaveformDesigner</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformDesignerToggled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>328</x>
+     <y>405</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioModeAdaptive</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformDesignerChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>59</x>
+     <y>100</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioModeChirp</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformDesignerChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>59</x>
+     <y>130</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioModeCustom</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformDesignerChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>59</x>
+     <y>160</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioWalsh</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformDesignerChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>211</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioFourier</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformDesignerChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>264</x>
+     <y>211</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinHopFreq</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformDesignerChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>244</x>
+     <y>131</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinNoiseInterval</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformDesignerChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>244</x>
+     <y>101</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinRangeStart</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformDesignerChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>384</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinRangeEnd</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformDesignerChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>454</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>textCustomFunctions</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformDesignerChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>272</x>
+     <y>160</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBoxNumFunctions</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformDesignerChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>418</x>
+     <y>122</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboWaveformLength</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformDesignerChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>418</x>
+     <y>221</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonApply</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformDesignerApply()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>281</x>
+     <y>262</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonClose</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformDesignerCancelClose()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>441</x>
+     <y>262</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonReset</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformDesignerReset()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>361</x>
+     <y>262</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonDefault</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformDesignerDefault()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>56</x>
+     <y>262</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>249</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonRefresh</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onSerialPortRefreshRequested()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>430</x>
+     <y>36</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>249</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkSave</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>textSave</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>251</x>
+     <y>36</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>360</x>
+     <y>35</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkSave</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onSaveSettingChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>251</x>
+     <y>36</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>249</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>textSave</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onSaveSettingChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>360</x>
+     <y>35</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>249</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionScreenshot</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onRequestScreenshot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>249</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboWaveformLength</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onWaveformLengthChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>418</x>
+     <y>221</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>249</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onClose()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>249</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionCopy</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onCopyRequested()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>249</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionThemeDark</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onThemeSettingChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>245</x>
+     <y>264</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionThemeWindows</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onThemeSettingChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>245</x>
+     <y>264</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionLogScale</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>onLogScaleChanged(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>245</x>
+     <y>264</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>handleConnect()</slot>
+  <slot>onAutoCenterToggled(bool)</slot>
+  <slot>onOffsetTriggered()</slot>
+  <slot>onWaveformDesignerToggled(bool)</slot>
+  <slot>onWaveformDesignerApply()</slot>
+  <slot>onWaveformDesignerCancelClose()</slot>
+  <slot>onWaveformDesignerChanged()</slot>
+  <slot>onWaveformDesignerReset()</slot>
+  <slot>onWaveformDesignerDefault()</slot>
+  <slot>onSerialPortRefreshRequested()</slot>
+  <slot>onSaveSettingChanged()</slot>
+  <slot>onRequestScreenshot()</slot>
+  <slot>onWaveformLengthChanged(QString)</slot>
+  <slot>onClose()</slot>
+  <slot>onCopyRequested()</slot>
+  <slot>onThemeSettingChanged()</slot>
+  <slot>onLogScaleChanged(bool)</slot>
+ </slots>
+</ui>
