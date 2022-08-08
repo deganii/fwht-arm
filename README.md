@@ -16,21 +16,23 @@ What I wanted was an ultra-cheap (think $20) LIA that was fully "tinkerable" in 
 
 This video needs to be narrated, but the idea is that I'm loading up a fluorescent sample into an open-air prototype with no light-proofing. As I'm waving my hand around, blocking and unblocking the overhead lights, I'm simulating optical noise which is wreaking havoc on the sensitive light-based measurement (the measurement is bouncing around in the upper-right quadrant). I turn on the lock-in amplifier at 1:09, and you can see order emerge from the chaos. The outside light perturbation no longer has an effect on the signal. It's just a  steady line with a gentle slope representing the photobleaching rate of the fluorophore. Essentially, this demonstrates that at very low cost you can bring powerful noise-resiliency to small/portable sensing devices.
 
-[![Qt5-UI for Fast Walsh-Hadamard Lockin Amplifier](https://img.youtube.com/vi/tHf3V4GTSLU/0.jpg)](https://www.youtube.com/watch?v=tHf3V4GTSLU)
+[![Qt5-UI for Fast Walsh-Hadamard Lockin Amplifier](https://github.com/deganii/fwht-arm/blob/main/img/ui_play.png?raw=true)](https://www.youtube.com/watch?v=tHf3V4GTSLU)
 
 ## Can I download and fire this up for my project due next week?
 
-Probably not. This is research software so it is massively messy and not even close to a usable product. And it is very customized to our biomedical application. I've uploaded a binary release but the chances that you can use this as-is are pretty slim. 
+Probably not. This is research software so it's very messy and not even close to a usable product. And it's very customized to our biomedical application. I've uploaded a binary release but the chances that you can use this as-is are pretty slim. 
 
-Most likely I think this repository's main benefit will be people stumbling here via some keyword code-search, and finding a snippet or two that they need for their Teensy, Qt3d, or QCustomplot project. It might be a good starting point to design a re-usable library or platform. 
+Most likely I think this repository's main benefit will be people stumbling here via some keyword code-search, and finding a snippet or two that they need for their Teensy, Qt3d, or QCustomplot project. It might be a good starting point to design a re-usable LIA library or platform. 
 
 ## Features
 
 The GUI has lots of knobs etc where you can control the input modulation waveform, and choose from some pre-configured options:
 
+![alt text](https://github.com/deganii/fwht-arm/blob/main/img/waveform_editor.png?raw=true)
+
 The Teensy is a remarkable microntroller. Right now it produces a 12-bit waveform on its onboard DAC, and then samples 12-bit raw data (i.e. before any cross-correlation or demodulation) at 200kHz using its onboard ADC. Both the sampling and modulation are controlled by DMA so they are very efficient. The ADC reads are precisely synchronized with the DAC using timers and the Teensy's programmable delay block (the Teensy waits for the DAC signal to "settle" before measuring, see below image). The Teensy finally sends a real-time data stream to the Qt-based UI (about 1MB/second) which does the post processing and display. The modulation waveform can be customized on-the-fly, as shown in the video.
 
-![alt text](https://github.com/deganii/fwht-arm/blob/main/ADC-SettlingTime.png?raw=true)
+![alt text](https://github.com/deganii/fwht-arm/blob/main/img/adc_settling.png?raw=true)
 
 ## Acknowledgements:
 
