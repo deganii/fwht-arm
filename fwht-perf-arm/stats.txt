@@ -1,0 +1,16 @@
+Teensy 3.6 - 180MHz - Faster Flag
+
+fwht_nilsen with size 4096: 7225 us
+fwht_wiki with size 4096: 2392 us
+fwht_wiki_simd2 with size 4096: 1255 us
+fwht_beauchamp_li with size 4096: 2569 us
+fwht_beauchamp_simd with size 4096: 2474 us
+fwht_beauchamp_simd2 with size 4096: 1660 us
+fwht_wiki_seq_simd2 with size 4096: 1459 us
+fwht_wiki_seq_simd2 with size 16384: 6559 us
+
+
+Size 4096 on W520 Laptop (2GHz)
+fwht (NO SIMD) Transform Took:  52234 microseconds (average of  1000   trials)
+fwht_wiki_simd Transform Took:  22659 nanoseconds (average of  1000   trials)
+fwht_iterative_simd Transform Took:  13572 nanoseconds (average of  1000   trials)
