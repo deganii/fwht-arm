@@ -2,7 +2,7 @@
 
 This repository holds the source code for my PhD thesis project
 
-Link to my PhD thesis if you like to read insufferable academic stuff:
+Link to my PhD thesis if you like to read academic stuff :)
 
 https://dspace.mit.edu/handle/1721.1/143262
 
